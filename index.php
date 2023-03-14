@@ -77,28 +77,12 @@
   ?>
   
   </div>
-  <div class="w-full sm:w-1/2">
-    <!-- Map -->
-    <div class="bg-white px-4 py-5 sm:p-0 dark:bg-slate-800">
-      <div class="border-4 border-dashed border-gray-200 dark:border-slate-700 rounded-lg h-96">
-        <!-- Configure a leaflet map -->
-        <div id="map" style="height: 100%;"></div>
-        <script>
-            var map = L.map('map').setView([51.505, -0.09], 13);
-
-            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-
-            L.marker([51.5, -0.09]).addTo(map)
-                .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-                .openPopup();
-        </script>
-
-    </div>
-  </div>
- 
   
+<?php
 
-</div>
+if (isset($_GET["userLat"])) {
+  require('map.php');
+}
+
+?>
 </html>
